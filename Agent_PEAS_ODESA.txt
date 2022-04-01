@@ -1,0 +1,56 @@
+Agent
+
+Pacman: To eat all the coins in the game and don’t let the ghost eat him.
+
+Ghost: searching for least distance between itself and Pacman before all coins are over, In addition, it will scape from him if he ate the super coin, however, this will be temporally for a few seconds. also, the speed of the Ghost will change depending on the situation.
+
+---------------------------------------------------------------------------------------------------------------------
+
+PEAS
+
+Performance measure:
+
+- Pacman: Eat all the coins(get the max score).
+- Ghost: Eat Pacman at the least time.
+
+Environment:
+
+- Pacman
+- Ghosts
+- Obstacles
+- Nodes
+- respawn point
+
+Actuators:
+
+- The screen of the device will show the movements of Pacman and Ghosts and the environments itself, Also, the colors of the objects will be changed depending on the situation.
+    - If the Pacman win the game it will be announced that he won
+    - Else it will be game over
+- The score and live counter will be updated
+- Pause and Resume
+- Game interface
+
+Sensors: 
+
+- Pacman is user:
+    - Keyboard
+- Pacman is AI:
+    - map of the game
+- Ghost:
+    - First 20 seconds: Ghost will be walking randomly until it get into the scope of Pacman that will be defined.
+    - After first 20 seconds: Ghost will start chasing Pacman even if it is out of the scope.
+
+---------------------------------------------------------------------------------------------------------------------
+
+ODESA
+
+O: Fully observable
+
+D: Strategic
+
+E:  Sequential
+
+S: Dynamic 
+A:
+    - Multi-agent
+        - Competitive
