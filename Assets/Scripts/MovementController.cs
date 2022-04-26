@@ -68,7 +68,7 @@ public class MovementController : MonoBehaviour
             }
             else {
                 GameObject nextNode;
-                // this condition will happen if the player tiped the arrow key before but the return was null means
+                // this condition will happen if the player typed the arrow key before it get the intersection but the return was null means
                 // there was not any node in that direction so it the direction equalized with the nextDirection
                 // but however the tempDirecion is still the same
                 if (direction == nextDirection) {

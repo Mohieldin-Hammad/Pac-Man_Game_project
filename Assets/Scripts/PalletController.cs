@@ -7,7 +7,11 @@ public class PalletController : MonoBehaviour
     // has pallet will be used to identify if the current node has pallet
     public bool hasPallet { get; private set; }
     public SpriteRenderer pallet { get; private set; }
+    
+    public GameObject the_pacman;
+    public float manhattanDistance { get; set; }
 
+    public bool visited;
 
     private void Awake()
     {
@@ -15,6 +19,11 @@ public class PalletController : MonoBehaviour
         pallet = GetComponentInChildren<SpriteRenderer>();
         hasPallet = true;
 
+    }
+
+    private void Update()
+    {
+        manhattanDistance = Mathf.Abs(transform.position.x - the_pacman.transform.position.x) + Mathf.Abs(transform.position.y - the_pacman.transform.position.y);
     }
 
 
