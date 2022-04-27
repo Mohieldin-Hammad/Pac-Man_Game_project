@@ -21,7 +21,9 @@ public class NodeController : MonoBehaviour
     public bool upLeftGate = false;
     public bool downLeftGate = false;
 
- 
+    public bool visited;
+
+
     private void Awake()
     {
         // creating an array of the for directions

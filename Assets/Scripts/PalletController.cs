@@ -11,7 +11,6 @@ public class PalletController : MonoBehaviour
     public GameObject the_pacman;
     public float manhattanDistance { get; set; }
 
-    public bool visited;
 
     private void Awake()
     {
