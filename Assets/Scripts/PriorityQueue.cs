@@ -16,18 +16,16 @@ public class PriorityQueue : MonoBehaviour
         queue = list;
     }
 
-
-
+    //----------------------------
+    // not implemented yet..
+    //----------------------------
     // here I want to make sure that the  getcomponent is returning the variable
     public GameObject Dequeue()
     {
         int index = 0;
         for (int i = 0; i < queue.Count; i++)
         {
-            if (queue[i].GetComponent<PalletController>().manhattanDistance < queue[index].GetComponent<PalletController>().manhattanDistance)
-            {
-                index = i;
-            }
+            
         }
 
         GameObject node = queue[index];

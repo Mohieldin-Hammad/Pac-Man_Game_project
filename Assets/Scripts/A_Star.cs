@@ -3,16 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// A_Star algorithem implementation...
+// at the end of the algorithem the least path will be returned
 public class A_Star : MonoBehaviour
-{
-    
+{    
     public List<GameObject> getPath(GameObject start, GameObject target)
     {
         
-        
-
         List<GameObject> path = new List<GameObject>();
         List<Node> priorityQueue = new List<Node>();
+        
+        // adding the initial node(start) to the priorityQueue
         priorityQueue.Add(new Node(start, target));
 
         Node current_Node;
@@ -25,11 +26,11 @@ public class A_Star : MonoBehaviour
             // deueue the node with specific priority
             current_Node = GetNodeWithPriority(priorityQueue);
 
-
             // if the current node is the target it will the loop through the steps count and 
             // will add all nodes to the path list to be returned
             if (current_Node.currentNode == target)
             {
+                // adding all nodes to the path list until the node is end
                 while (current_Node != null)
                 {
                     path.Insert(0, current_Node.currentNode);
@@ -37,8 +38,7 @@ public class A_Star : MonoBehaviour
 
                 }
                 break;
-            }
-            
+            }    
             NodeController currentNodeC = current_Node.currentNode.GetComponent<NodeController>();
 
             // This condition will avoid calling the parent.currentNode if the node is the initial one 
@@ -57,25 +57,20 @@ public class A_Star : MonoBehaviour
             if (currentNodeC.canMoveUp && (currentNodeC.nodeUp != parentNode))
                 priorityQueue.Add(new Node(currentNodeC.nodeUp, target, current_Node));
 
-
             if (currentNodeC.canMoveRight && (currentNodeC.nodeRight != parentNode))
-            priorityQueue.Add(new Node(currentNodeC.nodeRight, target, current_Node));
-                
-
-
-            //For debuging------------------------------------
-            if (currentNodeC.canMoveDown && (currentNodeC.nodeDown != parentNode))
-                priorityQueue.Add(new Node(currentNodeC.nodeDown, target, current_Node));
+                priorityQueue.Add(new Node(currentNodeC.nodeRight, target, current_Node));
 
             if (currentNodeC.canMoveLeft && (currentNodeC.nodeLeft != parentNode))
                 priorityQueue.Add(new Node(currentNodeC.nodeLeft, target, current_Node));
 
+            if (currentNodeC.canMoveDown && (currentNodeC.nodeDown != parentNode))
+                priorityQueue.Add(new Node(currentNodeC.nodeDown, target, current_Node));
         }
        return path;
     }
 
 
-    // the priority here of the dequeue is node with least cost
+    // the priority of the dequeue here is node with least cost
     private Node GetNodeWithPriority(List<Node> queue)
     {
         int index = 0;
@@ -86,6 +81,7 @@ public class A_Star : MonoBehaviour
                 index = i;
             }
         }
+        // deleting the node with specific index from the queue
         Node selectedNode = queue[index];
         queue.RemoveAt(index);
         return selectedNode;
@@ -93,8 +89,7 @@ public class A_Star : MonoBehaviour
 }
 
 
-
-
+// Node class is used to make linkedlist of nodes to be used in the search algorithem
 class Node
 {
     public GameObject currentNode;
