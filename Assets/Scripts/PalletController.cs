@@ -5,9 +5,11 @@ using UnityEngine;
 public class PalletController : MonoBehaviour
 {
     // has pallet will be used to identify if the current node has pallet
-    public bool hasPallet { get; private set; }
-    public SpriteRenderer pallet { get; private set; }
-    
+    public bool hasPallet;
+    public SpriteRenderer pallet;
+
+    public GameManager gameManager;
+    private int score;
 
     private void Awake()
     {
@@ -23,8 +25,13 @@ public class PalletController : MonoBehaviour
         // if the pallet touched by the pacman rigidbody it will be enabled
         if (col.gameObject.transform.GetChild(0).tag == "Pacman" && hasPallet)
         {
+            // disable the render of the pallet
             pallet.enabled = false;
             hasPallet=false;
+
+            // increasing the score by th amount of score
+            score = 1;
+            gameManager.setScore(score);
         }
     }
 
