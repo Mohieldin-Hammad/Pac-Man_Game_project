@@ -48241,7 +48241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1008010397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48354,11 +48354,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662e0ba68f6216440a59fae92aa2bd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  palletExploration: {fileID: 653662870}
   aStar: {fileID: 1008010406}
-  pacmanNode: {fileID: 653662865}
+  pacmanNode: {fileID: 0}
   targetNode: {fileID: 0}
   nextNode: {x: 0, y: 0, z: 0}
+  gameManager: {fileID: 1408178523}
 --- !u!114 &1008010406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69147,6 +69147,10 @@ MonoBehaviour:
   downRightGateNode: {fileID: 2099219950}
   upLeftGateNode: {fileID: 578879194}
   downLeftGateNode: {fileID: 618570189}
+  palletExploration: {fileID: 653662870}
+  pacmanNode: {fileID: 653662865}
+  pacman: {fileID: 1008010396}
+  score: 0
   scoreText: {fileID: 1575511974}
   sound: {fileID: 0}
 --- !u!82 &1408178525

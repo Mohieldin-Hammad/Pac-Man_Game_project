@@ -68,9 +68,6 @@ public class PalletExploration : MonoBehaviour
         return bfsList.Distinct().ToList();
     }
 
-    public int palletsCount()
-    {
-        return BFS_Exploration().Count();
-    }
+    
 
 }

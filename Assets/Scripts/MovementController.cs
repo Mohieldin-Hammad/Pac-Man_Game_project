@@ -7,7 +7,7 @@ public class MovementController : MonoBehaviour
     public GameManager gameManager;
 
 
-    // current node is already referencedin unity
+    // current node is already referenced in unity
     public GameObject currentNode;
     private float speed = 8;
 

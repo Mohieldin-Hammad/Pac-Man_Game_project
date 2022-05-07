@@ -11,6 +11,7 @@ public class PalletController : MonoBehaviour
     public GameManager gameManager;
     private int score;
 
+
     private void Awake()
     {
         // At first all the nodes have a pallet

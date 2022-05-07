@@ -11,16 +11,24 @@ public class PacmanAnimation : MonoBehaviour
     private int animationIndex = 0;
 
 
+    
+
+
+
     private void Awake()
     {
         // Returns the Component of type in the GameObject or any of its children using depth first search.
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
+
+
     private void Start()
     {
         // InvokeRepeating is repeating a function each specific time
         InvokeRepeating(nameof(animationProcess), animationTime, animationTime);
+
+        
     }
 
     
