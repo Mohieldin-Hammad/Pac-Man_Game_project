@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Node
   - Pacman
+  - UserPlayer
+  - AIPlayer
+  - Quit
   layers:
   - Default
   - TransparentFX

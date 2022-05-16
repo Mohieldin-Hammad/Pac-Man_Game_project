@@ -40,9 +40,18 @@ public class GameManager : MonoBehaviour
 
     public AudioSource sound;
 
+    // Adding Scene control class for managing the view of the game
+    public SceneControl scene;
+
+ 
+
 
     void Awake()
-    { 
+    {
+
+        // get reference to the scene controller
+        scene = GetComponent<SceneControl>();
+
         // playing music
         sound = GetComponent<AudioSource>();
         if (sound.mute == true) sound.mute = false; 
@@ -74,6 +83,11 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void startGame()
+    {
+        
+    }
+
     private void Update()
     {
         // When the user click S on the keyboard the game will reset the default state and start the game
@@ -81,7 +95,7 @@ public class GameManager : MonoBehaviour
         {
             // reseting all the game
             resetState();
-                    
+
             // and start new one
             newGame();
         }
