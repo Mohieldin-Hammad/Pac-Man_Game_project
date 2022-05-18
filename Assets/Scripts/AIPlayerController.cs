@@ -32,6 +32,8 @@ public class AIPlayerController : MonoBehaviour
     public GameManager gameManager;
 
 
+    private float angle = 0f;
+
     private void Start()
     {
         currentIndex = 0;
@@ -51,14 +53,27 @@ public class AIPlayerController : MonoBehaviour
         // the next node to make pacman moving to 
         nextNode = path[currentIndex].transform.position;
 
+        
+        if (nextNode.x > transform.position.x && nextNode.y == transform.position.y) {
+            angle = 0f;
+        }
+        else if (nextNode.x < transform.position.x && nextNode.y == transform.position.y) {
+            angle = 180f;
+        }
+        else if (nextNode.y > transform.position.y && nextNode.x == transform.position.x) {
+            angle = 90f;
+        }
+        else if (nextNode.y < transform.position.y && nextNode.x == transform.position.x) {
+            angle = 270f;
+        }
+        // changing the rotation of pacman depending on the angle
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+
         // if the pacman still not arrived to the next node means that the pacman is still between the current 
         // node and the next one
         if (transform.position != nextNode){
-
             transform.position = Vector2.MoveTowards(transform.position, nextNode, (speed * Time.deltaTime));
-            // get the angle of the using arctan
-            float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         } // else the pacman is at the top of the next node 
         else{
@@ -93,9 +108,11 @@ public class AIPlayerController : MonoBehaviour
     // set the new start node and target and get the path from the start to the goal
     private void ResetThePath()
     {
+        if (foods.Count > 0) { 
         targetNode = DequeueWithPriority(transform.position, foods);
         path = aStar.getPath(pacmanNode, targetNode);
         currentIndex = 0;
+        }
     }
 
 

@@ -9,7 +9,7 @@ public class MovementController : MonoBehaviour
 
     // current node is already referenced in unity
     public GameObject currentNode;
-    private float speed = 8;
+    private float speed = 12;
 
     // this three types of string will refer to the direction that will be used to make the movement
     // the four string values will be one of these {up, down, right, left}

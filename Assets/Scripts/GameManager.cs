@@ -43,8 +43,11 @@ public class GameManager : MonoBehaviour
     // Adding Scene control class for managing the view of the game
     public SceneControl scene;
 
- 
+    // will apply the mode of GameSpecification.gameMode
+    private string mode;
 
+    private float timeLeft;
+    public Text timeText;
 
     void Awake()
     {
@@ -71,34 +74,71 @@ public class GameManager : MonoBehaviour
         // show restart or not. If it's a new game the restartGame will will be true and the AIPlayerController will 
         // return it back to false after executing the ReStart() method
         reStartGame = false;
+
+
+        if (pacman.activeSelf)
+        {
+            pacman.SetActive(false);
+        }
     }
 
 
     private void Start()
     {
+        // timer time
+        timeLeft = 90f;
+
+
+        string mode = GameSpecification.GameMode;
+        if (mode == "USER")
+        {
+            pacman.GetComponent<PlayerController>().enabled = true;
+            pacman.GetComponent<MovementController>().enabled = true;
+            pacman.GetComponent<AIPlayerController>().enabled = false;
+        }
+        else if (mode == "AI") {
+            pacman.GetComponent<PlayerController>().enabled = false;
+            pacman.GetComponent<MovementController>().enabled = false;
+            pacman.GetComponent<AIPlayerController>().enabled = true;
+        }
+
+        if (!pacman.activeSelf)
+        {
+            pacman.SetActive(true);
+        }
+
         // using the BFS to store all pallets in foods list
         foods = palletExploration.BFS_Exploration();
         foodsCount = foods.Count;
         
+        // reseting all the game
+        resetState();
+
+        // and start new one
+        newGame();
     }
 
 
-    public void startGame()
-    {
-        
-    }
 
     private void Update()
     {
-        // When the user click S on the keyboard the game will reset the default state and start the game
-        if (Input.GetKeyDown(KeyCode.S) /* && !pacman.activeSelf*/ )
+        if (timeLeft > 0)
         {
-            // reseting all the game
-            resetState();
-
-            // and start new one
-            newGame();
+            timeLeft -= Time.deltaTime;
+            updateTimer(timeLeft);
         }
+        else
+        {
+            scene.LoadResultScene("LOST");   
+        }
+    }
+
+
+    void updateTimer(float currentTime)
+    {
+        float minutes = Mathf.FloorToInt(currentTime / 60);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+        timeText.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
     }
 
 
@@ -123,7 +163,10 @@ public class GameManager : MonoBehaviour
         if (score == foodsCount)
         {
             pacman.SetActive(false);
-            resetState();
+            //resetState();
+
+
+            scene.LoadResultScene("WIN");
         }
     }
 
