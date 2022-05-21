@@ -5,11 +5,12 @@
 > Pac-Man is a minimalistic game that You can play it online or Download it. In this project we implement the A* search algorithm to enable the Pacman to collect all the pallets (nodes) in the least possible time. Also, there is a user control mode 
 that let the user playing the game using the arrow keys.
 
-💬 Hint: all the scripts are stored in the Assets file (\Pac-Man_Game_project\Assets\Scripts)
+> 💬 Hint: all the scripts are stored in the Assets file (\Pac-Man_Game_project\Assets\Scripts)
 
-This game was built using:
+>This game was built using:
 Unity Engine (C# language)
 and Photoshop for designing 
+
 ![csharp-original](https://user-images.githubusercontent.com/97237706/169622443-e6a48970-9f7b-4513-820b-c624276a28f9.svg)
 ![unity-icon](https://user-images.githubusercontent.com/97237706/169622405-0deb9de0-f3fc-489c-bac4-a2fbd01a0a64.svg)
 
