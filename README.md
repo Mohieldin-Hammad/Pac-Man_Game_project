@@ -11,10 +11,7 @@ that let the user playing the game using the arrow keys.
 Unity Engine (C# language)
 and Photoshop for designing 
 
-![csharp-original](https://user-images.githubusercontent.com/97237706/169622443-e6a48970-9f7b-4513-820b-c624276a28f9.svg)
-![unity-icon](https://user-images.githubusercontent.com/97237706/169622405-0deb9de0-f3fc-489c-bac4-a2fbd01a0a64.svg)
-
-
+<img src="https://user-images.githubusercontent.com/97237706/169622443-e6a48970-9f7b-4513-820b-c624276a28f9.svg" width="70" alt="Csharp"/> <img src="https://user-images.githubusercontent.com/97237706/169622405-0deb9de0-f3fc-489c-bac4-a2fbd01a0a64.svg" width="70" alt="Unity"/>
 
 ## 🔧 Development
 * Making and Designing the structure of the game application
